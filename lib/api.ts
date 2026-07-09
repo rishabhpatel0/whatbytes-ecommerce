@@ -21,3 +21,20 @@ export async function getProducts(): Promise<ProductsResponse> {
     };
   }
 }
+
+export async function getProduct(id: string) {
+  try {
+    const res = await fetch(`${BASE_URL}/products/${id}`, {
+      cache: "no-store",
+    });
+
+    if (!res.ok) {
+      throw new Error("Failed to fetch product");
+    }
+
+    return await res.json();
+  } catch (error) {
+    console.error("Error fetching product:", error);
+    return null;
+  }
+}

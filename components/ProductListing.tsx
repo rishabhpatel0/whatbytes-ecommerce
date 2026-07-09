@@ -41,6 +41,7 @@ export default function ProductListing({ products }: Props) {
           {filteredProducts.map((product) => (
             <ProductCard
               key={product.id}
+              id={product.id}
               title={product.title}
               price={product.price}
               image={product.thumbnail}
