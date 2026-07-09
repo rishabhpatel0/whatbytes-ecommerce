@@ -6,8 +6,8 @@ export default function Footer() {
       <div className="mx-auto grid max-w-7xl grid-cols-3 gap-8 px-8 py-10">
         <div>
           <h3 className="mb-4 text-xl font-semibold">Filters</h3>
-          <p>All</p>
-          <p>Electronics</p>
+          <p>All Electronics</p>
+          <p>© 2024 American</p>
         </div>
 
         <div>
