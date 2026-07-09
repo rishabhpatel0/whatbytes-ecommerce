@@ -2,9 +2,12 @@
 
 import { Search, ShoppingCart, User } from "lucide-react";
 import { useShop } from "@/context/ShopContext";
+import Link from "next/link";
+import { useCart } from "@/context/CartContext";
 
 export default function Header() {
   const { search, setSearch } = useShop();
+  const { cart } = useCart();
 
   return (
     <header className="bg-indigo-700 text-white">
@@ -27,10 +30,17 @@ export default function Header() {
         </div>
 
         <div className="flex items-center gap-4">
-          <button className="flex items-center gap-2 rounded-lg bg-indigo-800 px-4 py-2">
-            <ShoppingCart size={18} />
-            Cart
+        <Link href="/cart">
+          <button className="relative flex items-center gap-2 rounded-lg bg-indigo-800 px-4 py-2">
+              <ShoppingCart size={18} />
+              Cart
+            {cart.length > 0 && (
+              <span className="absolute -right-2 -top-2 flex h-5 w-5 items-center justify-center rounded-full bg-red-500 text-xs">
+                {cart.length}
+              </span>
+            )}
           </button>
+        </Link>
 
           <div className="rounded-full bg-indigo-800 p-2">
             <User size={20} />
